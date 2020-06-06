@@ -3,7 +3,7 @@
 %         Universidade Federal de Alagoas
 %  E-mail: ismaellxd@gmail.com
 %  Copyright © 2019 MIT LICENCE
-%  Turorial LaTeX: https://ismaeldamiao.blogspot.com/p/latex.html
+%  Turorial LaTeX: https://ismaeldamiao.github.io/pt/pkg/latex/
 %  Descrição: Modelo de documento feiro em LaTex, o foco principal do modelo é 
 %            fazer o relatório de trabalho/experimento, entretanto este modelo
 %            pode ser seguido para quaisquer outros fins que necessitem do LaTeX
@@ -57,6 +57,7 @@
 \usepackage[num,overcite]{abntex2cite} % Citações padrão ABNT, em ordem alfabética.
 \citebrackets[]                        % Citações com coxetes.
 \usepackage{setspace}                  % Espaço duplo entre parágrafos.
+\usepackage{tikz}                      % Para fazer fluxograma
 % --------------------------------------
 % CONFIGURAÇÕES DE PACOTES
 % --------------------------------------
@@ -70,6 +71,7 @@
 \renewcommand{\cftsectionpagefont}{\cftsectionfont}
 \setlength\afterchapskip{\lineskip}
 
+\usetikzlibrary{shapes.geometric, arrows}
 
 % Aqui as páginas estão ajustadas segundo as regras da ABNT
 \geometry{hmargin={3cm,2cm},vmargin={3cm,2cm}}          %Mudar margens da página
@@ -91,7 +93,7 @@ width0pt\right\delimright_{\rlap{$\scriptstyle#3$}}$};}}
 
 % Aqui eu utilizei o pacote de teoremas para criar também a funções para axiomas
 % leis físicas, e definições matemáticas
-\declaretheorem[style=definition,name=Definição,parent=chapter,qed=\textemdash]{definicao}
+\declaretheorem[style=definition,name=Defini\c{c}\~{a}o,parent=chapter,qed=\textemdash]{definicao}
 \declaretheorem[style=plain,name=Teorema,qed=\textnormal{\textemdash}]{teorema}
 \declaretheorem[style=plain,name=Axioma,qed=\textnormal{\textemdash}]{axioma}
 \declaretheorem[style=plain,name=Lei,qed=\textnormal{\textemdash}]{lei}
