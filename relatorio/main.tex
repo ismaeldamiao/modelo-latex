@@ -26,6 +26,8 @@
    brazil,                       % O último idioma é o principal do documento.
    xcolor=table                  % Tabelas coloridadas.
 ]{abntex2}
+
+
 % --------------------------------------
 % PACOTES
 % --------------------------------------
@@ -58,9 +60,19 @@
 \citebrackets[]                        % Citações com coxetes.
 \usepackage{setspace}                  % Espaço duplo entre parágrafos.
 \usepackage{tikz}                      % Para fazer fluxograma
+
+
 % --------------------------------------
 % CONFIGURAÇÕES DE PACOTES
 % --------------------------------------
+\newcommand{\cqd}{\hfill\blacksquare}
+\newcommand{\asen}{\operatorname{arcsen}\,}
+\newcommand{\sen}{\operatorname{sen}\,}
+\newcommand{\deu}{\partial}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
 % Não se impote com essas coisas, no geral, não será preciso mexer nelas
 \renewcommand{\ABNTEXchapterfontsize}{\Large}       %Muda o tamanho da fonte de título de capítulo
 \renewcommand{\ABNTEXchapterfont}{\rmfamily}        %Muda a fonte do título de capítulo
@@ -77,7 +89,9 @@
 \geometry{hmargin={3cm,2cm},vmargin={3cm,2cm}}          %Mudar margens da página
 
 
+% ---
 % Configuração do tikz para fluxograma
+% ---
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black]
 \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black]
@@ -87,8 +101,10 @@
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \tikzstyle{line} = [draw, -latex']
 
+% ---
 % Tem aguma coisa a ver com a química, sem isso o pacote parece não funcionar
 % direito
+% ---
 \newcommand\setpolymerdelim[2]{\def\delimleft{#1}\def\delimright{#2}}
 \def\makebraces[#1,#2]#3#4#5{%
 \edef\delimhalfdim{\the\dimexpr(#1+#2)/2}%
@@ -102,8 +118,10 @@ width0pt\right.$};%
 width0pt\right\delimright_{\rlap{$\scriptstyle#3$}}$};}}
 \setpolymerdelim()
 
+% ---
 % Aqui eu utilizei o pacote de teoremas para criar também a funções para axiomas
 % leis físicas, e definições matemáticas
+% ---
 \declaretheorem[style=definition,name=Defini\c{c}\~{a}o,parent=chapter,qed=\textemdash]{definicao}
 \declaretheorem[style=plain,name=Teorema,qed=\textnormal{\textemdash}]{teorema}
 \declaretheorem[style=plain,name=Axioma,qed=\textnormal{\textemdash}]{axioma}
