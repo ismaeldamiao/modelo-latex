@@ -1,0 +1,149 @@
+\documentclass[
+   % -- opções da classe memoir --
+   12pt,                         % tamanho da fonte.
+   a4paper,                      % tamanho do papel.
+   % -- opções do pacote babel --
+   spanish,                      % idioma adicional para hifenização.
+   brazil,                       % O último idioma é o principal do documento.
+   xcolor=table                  % Tabelas coloridadas.
+]{abntex2}
+% ---
+% PACOTES
+% ---
+\usepackage{amssymb}                   % Para exibir símbolos de conjuntos de números (reais, etc...).
+\usepackage{amsmath}                   % Para adcionar equações
+\usepackage{amsfonts}                  % Fontes para notação matemática.
+\usepackage{amsthm}                    % Teoremas
+\usepackage{xcolor}                    % Para colorir
+\usepackage{thmtools}                  % Front end para amsthm (\declaretheorem)
+\usepackage[T1]{fontenc}               % Selecao de codigos de fonte.
+\usepackage[utf8x]{inputenc}           % Codificacao do documento (conversão automática dos acentos).
+\usepackage{ucs}                       % Complemento do anterior.
+\usepackage{indentfirst}               % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}                     % Controle das cores.
+\usepackage{microtype}                 % para melhorias de justificação.
+\usepackage{lipsum}                    % para geração de dummy text.
+\usepackage{fancyhdr}                  % Pemite alterações no cabeçalho e rodapé.
+\usepackage{hyperref}                  % Cria formatação automática de PDF.
+\usepackage[hyphenbreaks]{breakurl}    % Quebra de linha em url.
+\usepackage{geometry}                  % Permite configurar as margens da página.
+\usepackage[num,overcite]{abntex2cite} % Citações padrão ABNT, em ordem alfabética.
+\citebrackets[]                        % Citações com coxetes.
+\usepackage{setspace}                  % Espaço duplo entre parágrafos.
+\usepackage{bibentry}                  % Para mostrar artigos publicados.
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+\hypersetup{
+   pdftitle={CV I.F.F. dos Santos},
+   colorlinks=true,   % false: boxed links; true: colored links
+   linkcolor=blue,    % color of internal links
+   citecolor=blue,    % color of links to bibliography
+   filecolor=magenta, % color of file links
+   urlcolor=blue
+}
+
+\begin{document}
+\nobibliography{works}
+% ------------------------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ------------------------------------------------------------------------------
+   \begin{center}
+      \textbf{ISMAEL FELIPE FERREIRA DOS SANTOS}
+   \end{center}
+   \begin{flushleft}
+      \small
+      Endereço: Rua 2ª Travessa da Esperança, Jacintinho, Maceió-AL.\\
+      Telefone e WhatsApp: \href{tel:+5582993452161}{(82) 99345-2161}\\
+      E-mail: \href{mailto:ismaellxd@gmail.com}{ismaellxd@gmail.com}\\
+      Lattes: \href{http://lattes.cnpq.br/1281887099263383}{http://lattes.cnpq.br/1281887099263383}
+   \end{flushleft}
+
+% ------------------
+% Escolaridade
+% ------------------
+   \begin{flushleft}
+      \hline \vspace{2pt}
+      \textbf{Escolaridade} \vspace{2pt} \hline
+   \end{flushleft}
+   \begin{itemize}[nosep]
+      \item[ ] \textbf{Bacharelado em Física:}
+      \begin{itemize}[nosep]
+        \item[ ] Universidade Federal de Alagoas – UFAL. Desde 2018 (6º período).
+      \end{itemize}
+      \item[ ] \textbf{Ensino médio:}
+      \begin{itemize}[nosep]
+        \item[ ] E. E. Profº Theonilo Gama. Concluído em março de 2018.
+      \end{itemize}
+   \end{itemize}
+
+% ------------------
+% Idioma
+% ------------------
+   \begin{flushleft}
+      \hline \vspace{2pt}
+      \textbf{Idioma} \vspace{2pt} \hline
+   \end{flushleft}
+   \begin{itemize}[nosep]
+      \item[ ] \textbf{Espanhol:}
+      \begin{itemize}[nosep]
+        \item[ ] Lê bem, fala bem e escreve bem.
+      \end{itemize}
+      \item[ ] \textbf{Inglês:}
+      \begin{itemize}[nosep]
+        \item[ ] Lê razoavelmente, escreve razoavelmente.
+      \end{itemize}
+   \end{itemize}
+
+% ------------------
+% Softwares de domínio
+% ------------------
+   \begin{flushleft}
+      \hline \vspace{2pt}
+      \textbf{Softwares de domínio} \vspace{2pt} \hline
+   \end{flushleft}
+   \begin{itemize}[nosep]
+      \item Linux;
+      \item Linguagens de programação:
+      \begin{itemize}[nosep]
+         \item BASH;
+         \item C;
+         \item Fortran 90.
+      \end{itemize}
+      \item \LaTeX;
+      \item LibreOffice;
+      \item GNUplot;
+      \item xmGrace.
+   \end{itemize}
+
+% ------------------
+% Experiências
+% ------------------
+   \begin{flushleft}
+      \hline \vspace{2pt}
+      \textbf{Experiências} \vspace{2pt} \hline
+   \end{flushleft}
+   \begin{itemize}[nosep]
+      \item Monitor nas edições de 2018 e 2019 da expofísica da UFAL.
+      \item Membro do Grupo de Trabalho para discussão e criação do Estatuto do
+      Diretório Acadêmico do Instituto de Física, órgão de representação estudantil.
+      \item Dois períodos como monitor no laboratório de Física Experimental 1.
+      \item Dois anos de Iniciação Científica na área de
+      transporte em sistemas de baixa dimensionalidade.
+   \end{itemize}
+
+% ------------------
+% Publicações
+% ------------------
+   \begin{flushleft}
+      \hline \vspace{2pt}
+      \textbf{Publicações} \vspace{2pt} \hline
+   \end{flushleft}
+   \begin{enumerate}[nosep]
+      \item \bibentry{DOSSANTOS2020125126}
+      \item \bibentry{doi:10.1142/S0129183121500406}
+      \item \bibentry{DOSSANTOS2021125773}
+   \end{enumerate}
+
+\end{document}
