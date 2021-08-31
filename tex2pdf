@@ -42,7 +42,7 @@ update(){
    else
       file="${HOME}/bin/tex2pdf"
    fi
-   wget -qO "${file}" https://raw.githubusercontent.com/ismaeldamiao/scripts/master/tex2pdf.bash
+   wget -qO "${file}" github.com/ismaeldamiao/modelo-latex/raw/master/tex2pdf
    chmod 755 "${file}"
 }
 
@@ -55,6 +55,11 @@ function tex(){
    arg_pdflatex+="--interaction=nonstopmode "
    arg_pdflatex+="-file-line-error "
    arg_pdflatex+="-output-format=pdf "
+   if [ "${PREFIX}" == "/data/data/com.termux/files/usr" ]; then
+      file_tmp="${PREFIX}/tmp/tex2pdf.log"
+   else
+      file_tmp="/tmp/tex2pdf.log"
+   fi
 
    pdflatex ${arg_pdflatex} "${1}.tex" 
    pdflatex ${arg_pdflatex} "${1}.tex"
@@ -73,7 +78,7 @@ function tex(){
 
    pdflatex ${arg_pdflatex} "${1}.tex"
    pdflatex ${arg_pdflatex} "${1}.tex"
-   pdflatex ${arg_pdflatex} "${1}.tex" > /tmp/tex2pdf.log
+   pdflatex ${arg_pdflatex} "${1}.tex" > ${file_tmp}
 }
 
 # ###
@@ -121,6 +126,8 @@ if [ "$std" == "stdout" ]; then
       GREP_COLOR='01;35' grep --color=always -i "warning"
       #GREP_COLOR='01;35' grep --color=always -i ".*:[0-9]*:.*\|warning"
    } >&1
+   echo
+   echo "To see more details type: pdflatex '${NOME}.tex'"
 else
    tex "${NOME}" 1> /dev/null 2>&1
    cat /tmp/tex2pdf.log | {
