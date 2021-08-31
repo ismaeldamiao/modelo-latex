@@ -1,0 +1,149 @@
+#!/bin/bash
+# tex2pdf
+# função: Executar os comandos latex, bibtex e makeindex de forma simplificada
+# autor: Ricardo Brito do Nascimento britodfbr<at>incolume.com.br
+#
+#
+#  Editado por: Ismael Felipe Ferreira dos Santos
+#               Instituto de Fisica,
+#               Universidade Federal de Alagoas
+#  E-mail: ismaellxd@gmail.com
+#  Mudificacoes: Gerar graficos com GNUPlot na saida LaTex de forma correta
+#                e nome mais sugestivo
+#  Ultima alteracao em 05/03/2021
+#
+#  Para facilitar:          mv tex2pdf.bash ~/bin/tex2pdf && chmod 755 ~/bin/tex2pdf
+#  Para compilar um .tex:   tex2pdf <NomeDoArquivo.tex>
+
+# ###
+# Mensagem de ajuda
+# ###
+
+usage(){
+cat << EOF
+Script para compilar arquivos .tex escritos em LaTeX
+
+Use $0 [arg]
+arg:
+    [-h] [help] [--help]      Ver esta menssagem
+    [NomeArquivo.tex]         Para compilar o arquivo NomeArquivo.tex
+    [NomeArquivo.tex] [-v]    Para compilar e mostrar menssagens de warning
+    [--update]                Para atualizar este script
+EOF
+}
+
+# ###
+# Atualizar script
+# ###
+
+update(){
+   if [ "${PREFIX}" == "/data/data/com.termux/files/usr" ]; then
+      file="${PREFIX}/bin/tex2pdf"
+   else
+      file="${HOME}/bin/tex2pdf"
+   fi
+   wget -qO "${file}" https://raw.githubusercontent.com/ismaeldamiao/scripts/master/tex2pdf.bash
+   chmod 755 "${file}"
+}
+
+# ###
+# Funcao que compila o arquivo .tex
+# ###
+
+function tex(){
+   arg_pdflatex="-shell-escape "
+   arg_pdflatex+="--interaction=nonstopmode "
+   arg_pdflatex+="-file-line-error "
+   arg_pdflatex+="-output-format=pdf "
+
+   pdflatex ${arg_pdflatex} "${1}.tex" 
+   pdflatex ${arg_pdflatex} "${1}.tex"
+
+   bibtex -terse "${1}"
+   pdflatex ${arg_pdflatex} "${1}.tex"
+   bibtex -terse "${1}"
+
+   makeindex "${1}.glo" -s "${1}.ist" -t "${1}.glg" -o "${1}.gls"
+   makeindex -s "${1}.ist" -t "${1}.nlg" -o "${1}.ntn" "${1}.not"
+
+   pdflatex ${arg_pdflatex} "${1}.tex"
+   bibtex -terse "${1}"
+   makeindex "${1}.glo" -s "${1}.ist" -t "${1}.glg" -o "${1}.gls"
+   makeindex -s "${1}.ist" -t "${1}.nlg" -o "${1}.ntn" "${1}.not"
+
+   pdflatex ${arg_pdflatex} "${1}.tex"
+   pdflatex ${arg_pdflatex} "${1}.tex"
+   pdflatex ${arg_pdflatex} "${1}.tex" > /tmp/tex2pdf.log
+}
+
+# ###
+# Verificar argumentos passados ao script
+# ###
+
+for arg in "$@"; do
+   if [ "$arg" == "-h" ] || [ "$arg" == "help" ] || [ "$arg" == "--help" ]; then
+      # Menssagem de ajuda
+      usage
+      exit 0
+   elif [[ "$arg" == *".tex" ]]; then
+      # Nome do arquivo a compilar
+      NOME="$(basename $arg .tex)"
+      cd `dirname "$arg"`
+   elif [ "$arg" == "--update" ]; then
+      # Atualizar este script
+      update
+      exit $?
+   elif [ "$arg" == "-v" ]; then
+      # Execuatar com stdout e stderr padao
+      std="stdout"
+   fi
+done
+
+# Verificar se o compilador LaTeX estah instalado
+command -v pdflatex 1> /dev/null 2>&1 || {
+   echo "Instale o programa pdflatex."
+   exit 1
+}
+# Verificar se o arquivo .tex existe
+[ -e "${NOME}.tex" ] || {
+    echo "Não foi possível encontrar '${NOME}.tex'."
+    exit 1
+}
+
+# Saida do compilador
+
+if [ "$std" == "stdout" ]; then
+   tex "${NOME}" 1> /dev/null 2>&1
+   cat /tmp/tex2pdf.log | {
+      GREP_COLOR='01;31' grep --color=always -i "error"
+   } >&2
+   cat /tmp/tex2pdf.log | {
+      GREP_COLOR='01;35' grep --color=always -i "warning"
+      #GREP_COLOR='01;35' grep --color=always -i ".*:[0-9]*:.*\|warning"
+   } >&1
+else
+   tex "${NOME}" 1> /dev/null 2>&1
+   cat /tmp/tex2pdf.log | {
+      GREP_COLOR='01;31' grep --color=always -i "error"
+   } >&2
+fi
+
+# ###
+# Deletar arquivos criados
+# ###
+
+rm \
+"${NOME}.dvi" \
+"${NOME}.gz" \
+"${NOME}.dvi" \
+"${NOME}.bak" \
+"${NOME}.bbl" \
+"${NOME}.blg" \
+"${NOME}.aux" \
+"${NOME}.toc" \
+"${NOME}.lof" \
+"${NOME}.lot" \
+"${NOME}.idx" \
+"${NOME}.log" > /dev/null 2>&1
+
+exit 0
