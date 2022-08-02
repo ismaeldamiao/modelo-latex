@@ -1,1 +1,0 @@
-# CV - Modelo de Currículo
