@@ -1,3 +1,26 @@
+%  Encoding: UTF-8
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+%  Copyright (C) 2022 I.F.F. dos Santos
+%
+%  Permission is hereby granted, free of charge, to any person obtaining a copy 
+%  of this software and associated documentation files (the “Software”), to 
+%  deal in the Software without restriction, including without limitation the 
+%  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+%  sell copies of the Software, and to permit persons to whom the Software is 
+%  furnished to do so, subject to the following conditions:
+%
+%  The above copyright notice and this permission notice shall be included in 
+%  all copies or substantial portions of the Software.
+%
+%  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+%  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+%  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+%  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+%  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+%  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+%  IN THE SOFTWARE.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
 \documentclass[
    % -- opções da classe memoir --
    12pt,                         % tamanho da fonte.
@@ -10,27 +33,37 @@
 % ---
 % PACOTES
 % ---
-\usepackage{amssymb}                   % Para exibir símbolos de conjuntos de números (reais, etc...).
-\usepackage{amsmath}                   % Para adcionar equações
+
+% Usar font 'TeX Gyre Termes'
+\usepackage{tgtermes}
+
+% 1ex - É a largura da letra x (minúscula)
+% 1em - É a largura da letra M (Maiúscula)
+\setlength{\parindent}{0ex}  % Tamanho 
+\setlength{\parskip}{1em}    % Tamaño del parágrafo
+
 \usepackage{amsfonts}                  % Fontes para notação matemática.
-\usepackage{amsthm}                    % Teoremas
 \usepackage{xcolor}                    % Para colorir
-\usepackage{thmtools}                  % Front end para amsthm (\declaretheorem)
 \usepackage[T1]{fontenc}               % Selecao de codigos de fonte.
 \usepackage[utf8x]{inputenc}           % Codificacao do documento (conversão automática dos acentos).
 \usepackage{ucs}                       % Complemento do anterior.
 \usepackage{indentfirst}               % Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}                     % Controle das cores.
 \usepackage{microtype}                 % para melhorias de justificação.
-\usepackage{lipsum}                    % para geração de dummy text.
-\usepackage{fancyhdr}                  % Pemite alterações no cabeçalho e rodapé.
 \usepackage{hyperref}                  % Cria formatação automática de PDF.
-\usepackage[hyphenbreaks]{breakurl}    % Quebra de linha em url.
 \usepackage{geometry}                  % Permite configurar as margens da página.
 \usepackage[num,overcite]{abntex2cite} % Citações padrão ABNT, em ordem alfabética.
 \citebrackets[]                        % Citações com coxetes.
-\usepackage{setspace}                  % Espaço duplo entre parágrafos.
 \usepackage{bibentry}                  % Para mostrar artigos publicados.
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+\usepackage{multicol}
+\setlength{\columnsep}{3.5cm}
+
+\newcommand{\customtitle}[1]{\noindent\textbf{\large#1}\vspace{2pt}\hrule}
+
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
@@ -38,112 +71,141 @@
 \hypersetup{
    pdftitle={CV I.F.F. dos Santos},
    colorlinks=true,   % false: boxed links; true: colored links
-   linkcolor=blue,    % color of internal links
+   linkcolor=cyan,    % color of internal links
    citecolor=blue,    % color of links to bibliography
    filecolor=magenta, % color of file links
-   urlcolor=blue
+   urlcolor=teal
 }
 
 \begin{document}
 \nobibliography{works}
-% ------------------------------------------------------------------------------
-% ELEMENTOS TEXTUAIS
-% ------------------------------------------------------------------------------
+
    \begin{center}
-      \textbf{ISMAEL FELIPE FERREIRA DOS SANTOS}
+      \textbf{ISMAEL FELIPE FERREIRA DOS SANTOS}\\
+      \tiny
+      Rua 2ª Travessa da Esperança, Jacintinho, Maceió-AL. CEP: 57040645.
    \end{center}
-   \begin{flushleft}
-      \small
-      Endereço: Rua 2ª Travessa da Esperança, Jacintinho, Maceió-AL.\\
-      Telefone e WhatsApp: \href{tel:+5582993452161}{(82) 99345-2161}\\
-      E-mail: \href{mailto:ismaellxd@gmail.com}{ismaellxd@gmail.com}\\
-      Lattes: \href{http://lattes.cnpq.br/1281887099263383}{http://lattes.cnpq.br/1281887099263383}
-   \end{flushleft}
+
+   \begin{multicols}{2}
+      \tiny
+      \textbf{\href{https://ufal.br/}{Universidade Federal de Alagoas}}\\
+      \textbf{Instituto de Física}\\
+      57072-900 Macei\'o, AL, Brasil}
+
+      \columnbreak
+
+      \faIcon[solid]{phone} \faIcon[solid]{whatsapp} \textbf{\href{tel:+5582993452161}{(82) 99345-2161}}\\
+      \faIcon[solid]{envelope} \textbf{\href{mailto:ismaellxd@gmail.com}{ismaellxd@gmail.com}}\\
+      \faIcon[solid]{home} \textbf{\href{https://ismaeldamiao.github.io/pt/}{ismaeldamiao.github.io}} \\
+      Lattes: \textbf{\href{http://lattes.cnpq.br/1281887099263383}{http://lattes.cnpq.br/1281887099263383}}
+   \end{multicols}
+
 
 % ------------------
 % Escolaridade
 % ------------------
-   \begin{flushleft}
-      \hline \vspace{2pt}
-      \textbf{Escolaridade} \vspace{2pt} \hline
-   \end{flushleft}
+\customtitle{Escolaridade}
+
    \begin{itemize}[nosep]
-      \item[ ] \textbf{Bacharelado em Física:}
+
+      \item[ ] \textbf{\href{https://ufal.br/}{Universidade Federal de Alagoas}}
       \begin{itemize}[nosep]
-        \item[ ] Universidade Federal de Alagoas – UFAL. Desde 2018 (6º período).
+        \item[ ] B.el, Física \hfill Esperado 2022
       \end{itemize}
-      \item[ ] \textbf{Ensino médio:}
+
+
+      \item[ ] \textbf{E. E. Profº Theonilo Gama}
       \begin{itemize}[nosep]
-        \item[ ] E. E. Profº Theonilo Gama. Concluído em março de 2018.
+        \item[ ] Ensino médio \hfill 2018
       \end{itemize}
+
    \end{itemize}
 
 % ------------------
 % Idioma
 % ------------------
-   \begin{flushleft}
-      \hline \vspace{2pt}
-      \textbf{Idioma} \vspace{2pt} \hline
-   \end{flushleft}
+\customtitle{Idioma}
+
    \begin{itemize}[nosep]
-      \item[ ] \textbf{Espanhol:}
+
+      \item[ ] \textbf{Espanhol}
       \begin{itemize}[nosep]
         \item[ ] Lê bem, fala bem e escreve bem.
       \end{itemize}
-      \item[ ] \textbf{Inglês:}
+      \item[ ] \textbf{Inglês}
+
+
       \begin{itemize}[nosep]
-        \item[ ] Lê razoavelmente, escreve razoavelmente.
+        \item[ ] Lê razoavelmente e escreve razoavelmente.
       \end{itemize}
+
    \end{itemize}
 
 % ------------------
-% Softwares de domínio
+% Áreas de interesse
 % ------------------
-   \begin{flushleft}
-      \hline \vspace{2pt}
-      \textbf{Softwares de domínio} \vspace{2pt} \hline
-   \end{flushleft}
+\customtitle{Áreas de interesse}
+
    \begin{itemize}[nosep]
-      \item Linux;
-      \item Linguagens de programação:
+
+      \item[ ] Áreas de atuação
       \begin{itemize}[nosep]
-         \item BASH;
-         \item C;
-         \item Fortran 90.
+        \item[ ] Física, Matemática.
       \end{itemize}
-      \item \LaTeX;
-      \item LibreOffice;
-      \item GNUplot;
-      \item xmGrace.
+
+
+      \item[ ] Linhas de pesquisa
+      \begin{itemize}[nosep]
+        \item[ ] Propriedades de transporte, física do estado sólido.
+      \end{itemize}
+
    \end{itemize}
 
 % ------------------
 % Experiências
 % ------------------
-   \begin{flushleft}
-      \hline \vspace{2pt}
-      \textbf{Experiências} \vspace{2pt} \hline
-   \end{flushleft}
+\customtitle{Experiências}
+
    \begin{itemize}[nosep]
       \item Monitor nas edições de 2018 e 2019 da expofísica da UFAL.
-      \item Membro do Grupo de Trabalho para discussão e criação do Estatuto do
-      Diretório Acadêmico do Instituto de Física, órgão de representação estudantil.
-      \item Dois períodos como monitor no laboratório de Física Experimental 1.
-      \item Dois anos de Iniciação Científica na área de
+      \item Um ano como monitor no laboratório de Física Experimental 1.
+      \item Professor monitor nas calouradas de 2020 e 2021 para introduzir
+      Geometria Analítica e Física Computacional,
+      tendo em ambos os casos publicado vídeos didáticos e no último
+      tendo escrito uma apostila.
+      \item Dois anos e meio de Iniciação Científica na área de
       transporte em sistemas de baixa dimensionalidade.
+   \end{itemize}
+
+% ------------------
+% Softwares de domínio
+% ------------------
+\customtitle{Softwares de domínio}
+
+   \begin{itemize}[nosep]
+      \item[ ] LibreOffice, \LaTeX, GNUplot, xmGrace, jekyll, Inkscape.
+
+      \item[ ] Linguagens de programação:
+      \begin{itemize}[nosep]
+         \item[ ] BASH, Java (básico), Python (básico), C, Fortran 90.
+      \end{itemize}
    \end{itemize}
 
 % ------------------
 % Publicações
 % ------------------
-   \begin{flushleft}
-      \hline \vspace{2pt}
-      \textbf{Publicações} \vspace{2pt} \hline
-   \end{flushleft}
+\customtitle{Publicações em revistas}
+
    \begin{enumerate}[nosep]
       \item \bibentry{DOSSANTOS2020125126}
-      \item \bibentry{doi:10.1142/S0129183121500406}
+      \item \bibentry{DOSSANTOS2021500406}
       \item \bibentry{DOSSANTOS2021125773}
+   \end{enumerate}
+
+\customtitle{Material didático}  
+
+   \begin{enumerate}[nosep]
+      \item \bibentry{DOSSANTOSIFC}
    \end{enumerate}
 
 \end{document}
