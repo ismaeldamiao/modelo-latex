@@ -29,6 +29,7 @@
 
 \usepackage{configuracao/config}
 
+% Informações gerais do documento
 \titulo{
    Título do Documento
 }
@@ -44,9 +45,25 @@
    Universidade Federal de Alagoas \\
    Instituto de Física
 }
+% Textos especiais
 \preambulo{
    Relatório de trabalho acadêmico realizado no Instituto de Física,
    como requisito para avaliação na disciplina Tal.
+}
+\dedicatoria{
+   Dedico este modelo a todo aqueles que tem ou já tiveram muita dor de
+   cabeça com o \LaTeX.
+}
+\agradecimentos{
+   \lipsum[1].
+}
+\epigrafe{
+   Principium sapientiæ timor Domini, et scientia sanctorum prudentia.\\
+
+   Proverbia 9:10
+}
+\resumo{
+   \lipsum[1]
 }
 \local{
    Maceió
@@ -62,18 +79,20 @@
 
 \begin{document}
 
+% Elementos pré-textuais -------------------------------------------------------
 \pretextual
 \imprimircapa
 \imprimirfolhaderosto
 
-\markdownInput{pretextual.md}
-
+\pretextualpreconfigurado
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 
+% Elementos textuais -----------------------------------------------------------
 \textual
 \markdownInput{textual.md}
 
+% Elementos pós-textuais -------------------------------------------------------
 \postextual
 \bibliography{reference.bib}
 \apendices

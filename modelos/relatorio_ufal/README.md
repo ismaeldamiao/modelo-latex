@@ -8,7 +8,7 @@ ATENÇÃO:
 > apenas de conhecimentos de MarkDown.
 
 Ligação para o [Overleaf](https://pt.overleaf.com/learn):
-* <https://www.overleaf.com/read/xjhghrzxqvky>
+* <https://www.overleaf.com/read/cvbznggkhwmt>
 
 ## Instruções
 
@@ -18,7 +18,7 @@ a edição mistura notação de LaTeX e MarkDown.
 ```
 relatorio-ufal
  |
- |---pretextual.md
+ |---main.tex
  |---textual.md
  |---apendices.md
  |---reference.bib
@@ -33,9 +33,9 @@ simples em MarkDown mostrado acima.
 ```
 relatorio-ufal
  |
- |---main.tex
  |---configuracao
  |    |
+ |    |---config.sty
  |    |---capa.tex
  |    |---cite.sty
  |    |---code.sty

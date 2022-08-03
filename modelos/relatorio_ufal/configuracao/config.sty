@@ -21,7 +21,7 @@
 %  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
 %  IN THE SOFTWARE.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
-\ProvidesPackage{ismael}
+\ProvidesPackage{config}
 % ------------------------------------------------------------------------------
 % APARÊNCIA GERAL DO DOCUMENTO
 % ------------------------------------------------------------------------------
@@ -74,13 +74,46 @@
 \tituloestrangeiro{\vspace{-2em}}
 \setlength{\ABNTEXsignwidth}{12cm}
 
-\providecommand{\ABNTEXispretextual}{false}
-\renewcommand{\pretextual}{
-   \aliaspagestyle{chapter}{empty}% customizing chapter pagestyle
-   \pagestyle{empty}
-   \aliaspagestyle{cleared}{empty}
-   \aliaspagestyle{part}{empty}
-   \renewcommand{\ABNTEXispretextual}{true}
+\renewenvironment{dedicatoria}{}{}
+\renewenvironment{agradecimentos}{}{}
+\renewenvironment{epigrafe}{}{}
+\renewenvironment{resumo}{}{}
+
+\providecommand{\imprimirdedicatoria}{}
+\providecommand{\imprimiragradecimentos}{}
+\providecommand{\imprimirepigrafe}{}
+\providecommand{\imprimirresumo}{}
+
+\renewcommand{\dedicatoria}[1]{\renewcommand{\imprimirdedicatoria}{#1}}
+\renewcommand{\agradecimentos}[1]{\renewcommand{\imprimiragradecimentos}{#1}}
+\renewcommand{\epigrafe}[1]{\renewcommand{\imprimirepigrafe}{#1}}
+\renewcommand{\resumo}[1]{\renewcommand{\imprimirresumo}{#1}}
+
+
+\newcommand{\pretextualpreconfigurado}{
+   \abntex@ifnotempty{\imprimirdedicatoria}{
+      \PRIVATEbookmarkthis{\dedicatorianame}
+      ~\vfill
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+         \imprimirdedicatoria
+      \end{minipage}
+      \PRIVATEclearpageifneeded
+   }
+   \abntex@ifnotempty{\imprimiragradecimentos}{
+      \pretextualchapter{\agradecimentosname}
+      \imprimiragradecimentos
+      \PRIVATEclearpageifneeded
+   }
+   \abntex@ifnotempty{\imprimirepigrafe}{
+      \PRIVATEbookmarkthis{\epigraphname}
+      ~\vfill
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+         \imprimirepigrafe
+      \end{minipage}
+      \PRIVATEclearpageifneeded
+   }
 }
 
 
