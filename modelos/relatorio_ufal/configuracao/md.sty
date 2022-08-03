@@ -1,0 +1,40 @@
+\RequirePackage{markdown}
+
+\makeatletter
+\markdownSetup{
+   hybrid,
+   smartEllipses,
+   fencedCode,
+   citations,
+   inlineFootnotes,
+   headerAttributes,
+   renderers = {
+      link = {\href{#2}{#1}},
+   },
+   rendererPrototypes = {
+      blockQuoteBegin = {\begin{citacao}},
+      blockQuoteEnd = {\end{citacao}},
+      ulBegin = {\begin{itemize}[nosep]},
+      ulEnd = {\end{itemize}},
+      olBegin = {\begin{enumerate}[nosep]},
+      olEnd = {\end{enumerate}},
+      image = {
+         \begin{figure}[H]
+            \label{fig:#1}
+            \caption{#4}
+            \begin{center}
+               \includegraphics[scale=0.2]{#2}
+            \end{center}
+            \legend{""}
+         \end{figure}
+      },
+      inputFencedCode = {
+         \ifx\relax#2\relax
+            \VerbatimInput{#1}
+         \else
+            \lstinputlisting[style=#2]{#1}
+         \fi
+      },
+   },
+}
+\makeatother

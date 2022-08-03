@@ -1,0 +1,70 @@
+% ------------------------------------------------------------------------------
+% CAPA E FOLHA DE ROSTO
+% ------------------------------------------------------------------------------
+
+% ---
+% Impressão da Capa
+\renewcommand{\imprimircapa}{%
+   \begin{capa}%
+      \center
+      \MakeUppercase{\imprimirinstituicao}
+
+      \vspace{2em}
+      \imprimirautor
+
+      \vfill
+      \MakeUppercase{\textbf{\imprimirtitulo}}
+      \vfill
+
+      \imprimirlocal
+
+      \imprimirdata
+
+      \vspace*{1cm}
+   \end{capa}
+}
+% ---
+
+
+% ---
+% Folha de rosto
+%   usar \imprimirfolhaderosto* caso deseje imprimir algo no verso da
+%   página no caso de estar no modo twoside. Util para imprimir a Ficha
+%   Bibliografica. Porem, se estiver no modo oneside, a versao sem estrela
+%   é identica.
+
+% ---
+% Conteudo padrao da Folha de Rosto
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+   \begin{center}
+
+      \MakeUppercase{\imprimirautor}
+
+      \vfill
+      \textbf{\imprimirtitulo}
+      \vfill
+
+      \abntex@ifnotempty{\imprimirpreambulo}{
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+         \imprimirpreambulo
+
+         \vspace{2em}
+         \imprimirorientadorRotulo~\imprimirorientador\par
+         \abntex@ifnotempty{\imprimircoorientador}{
+         \imprimircoorientadorRotulo~\imprimircoorientador
+         }
+      \end{minipage}
+      }
+
+      \vfill
+
+      \imprimirlocal
+
+      \imprimirdata
+      \vspace*{1cm}
+
+   \end{center}
+}
+\makeatother

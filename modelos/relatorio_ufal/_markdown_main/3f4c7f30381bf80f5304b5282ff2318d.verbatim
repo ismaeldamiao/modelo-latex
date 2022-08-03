@@ -1,0 +1,12 @@
+**Esse testo estará negrito**, *já este estará itálico* e
+``este estará entre aspas^[Este é um exemplo de nota de rodapé.]''.
+
+Uma lista não enumerada:
+
+- Olá
+- Mundo
+
+Uma lista enumerada:
+
+1. Olá
+2. Mundo.
