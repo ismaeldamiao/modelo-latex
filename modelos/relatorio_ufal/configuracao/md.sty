@@ -1,31 +1,42 @@
 \RequirePackage{markdown}
 
 \makeatletter
+\newcommand{\customurl}[2]{
+   \ifthenelse{\equal{#1}{#2}}%
+   {\url{#1}}%
+   {\href{#1}{#2}}%
+}
+\makeatother
+
+\makeatletter
 \markdownSetup{
-   hybrid,
    smartEllipses,
    fencedCode,
    citations,
    inlineFootnotes,
    headerAttributes,
+   pipeTables,
+   tableCaptions,
+   underscores=false,
+   hybrid,
    renderers = {
-      link = {\href{#2}{#1}},
+      link = {\customurl{#2}{#1}},
    },
    rendererPrototypes = {
       blockQuoteBegin = {\begin{citacao}},
-      blockQuoteEnd = {\end{citacao}},
-      ulBegin = {\begin{itemize}[nosep]},
-      ulEnd = {\end{itemize}},
-      olBegin = {\begin{enumerate}[nosep]},
-      olEnd = {\end{enumerate}},
-      image = {
+      blockQuoteEnd   = {\end{citacao}},
+      ulBegin         = {\begin{itemize}[nosep]},
+      ulEnd           = {\end{itemize}},
+      olBegin         = {\begin{enumerate}[nosep]},
+      olEnd           = {\end{enumerate}},
+      image           = {
          \begin{figure}[H]
-            \label{fig:#1}
             \caption{#4}
             \begin{center}
-               \includegraphics[scale=0.2]{#2}
+               \includegraphics{#2}
             \end{center}
-            \legend{""}
+            \legend{~}
+            \label{fig:#1}
          \end{figure}
       },
       inputFencedCode = {

@@ -3,6 +3,9 @@
 ```md
 **Esse testo estará negrito**, *já este estará itálico* e
 ``este estará entre aspas^[Este é um exemplo de nota de rodapé.]''.
+Este é um exemplo de URL:
+<http://ismaeldamiao.github.io>, mas também é interessante
+o exemplo do link [clique aqui](http://ismaeldamiao.github.io).
 
 Uma lista não enumerada:
 
@@ -17,6 +20,9 @@ Uma lista enumerada:
 
 **Esse testo estará negrito**, *já este estará itálico* e
 ``este estará entre aspas^[Este é um exemplo de nota de rodapé.]''.
+Este é um exemplo de URL:
+<http://ismaeldamiao.github.io>, mas também é interessante
+o exemplo do link [clique aqui](http://ismaeldamiao.github.io).
 
 Uma lista não enumerada:
 
@@ -28,7 +34,7 @@ Uma lista enumerada:
 1. Olá
 2. Mundo.
 
-# Instuções para equações
+# Instuções para matemática
 
 ```md
 Exemplo de equação na linha: $E = mc^2$.
@@ -37,6 +43,18 @@ Exemplo de equação sem numeração:
 $$
 E = mc^2
 $$
+
+Exemplo de equação numerada:
+\begin{equation}\label{eq:maxwell}
+\div(\vec E) = \frac{\rho}{\varepsilon_0}
+\end{equation}
+
+A \autoref{eq:maxwell} é uma consequência do \autoref{teo:HodgeMaxwell}.
+
+\begin{teorema}[name = Teorema de Hodge Maxwell, label = teo:HodgeMaxwell]
+Se uma (n-1)-forma diferencial suave $J$ é exata em uma n-variedade
+orientada compacta então existe uma única 2-forma fechada $F$ tal que $d\star F = J$.
+\end{teorema}
 ```
 
 Exemplo de equação na linha: $E = mc^2$.
@@ -45,6 +63,18 @@ Exemplo de equação sem numeração:
 $$
 E = mc^2
 $$
+
+Exemplo de equação numerada:
+\begin{equation}\label{eq:maxwell}
+\div(\vec E) = \frac{\rho}{\varepsilon_0}
+\end{equation}
+
+A \autoref{eq:maxwell} é uma consequência do \autoref{teo:HodgeMaxwell}.
+
+\begin{teorema}[name = Teorema de Hodge Maxwell, label = teo:HodgeMaxwell]
+Se uma (n-1)-forma diferencial suave $J$ é exata em uma n-variedade
+orientada compacta então existe uma única 2-forma fechada $F$ tal que $d\star F = J$.
+\end{teorema}
 
 # Instuções para fazer referências
 
@@ -65,14 +95,40 @@ Exemplo de citação:
 # Instuções para inserir imagens
 
 ```md
-Veja abaixo a \autoref{fig:exemplo}.
+A \autoref{fig:exemplo} foi salva em formato `.png`, já
+a \autoref{fig:ps} foi salva em formato `.eps`.
 
 ![exemplo](img/NomeDoArquivo.png "Título da imagem")
+
+![ps](img/graph1.eps "Gráfico salvo em PostScript")
 ```
 
-Veja abaixo a \autoref{fig:exemplo}.
+A \autoref{fig:exemplo} foi salva em formato `.png`, já
+a \autoref{fig:ps} foi salva em formato `.eps`.
 
 ![exemplo](img/NomeDoArquivo.png "Título da imagem")
+
+![ps](img/graph1.eps "Gráfico salvo em PostScript")
+
+# Instuções para inserir tabelas
+
+```md
+Use o site <https://tablesgenerator.com/markdown_tables>
+para fazer as tabelas em MarkDown e cole o códido no sei documento.
+
+| Esquerda   |       Centro      |      Direita |
+|------------|:-----------------:|-------------:|
+| Bernadette |       Lúcia       |    Teresinha |
+| Agostinho  | Senhora de Fátima | Madre Teresa |
+```
+
+Use o site <https://tablesgenerator.com/markdown_tables>
+para fazer as tabelas em MarkDown e cole o códido no sei documento.
+
+| Esquerda   |       Centro      |      Direita |
+|------------|:-----------------:|-------------:|
+| Bernadette |       Lúcia       |    Teresinha |
+| Agostinho  | Senhora de Fátima | Madre Teresa |
 
 # Instuções para inserir códigos
 
@@ -85,6 +141,19 @@ int main(void){
    printf("Ola Mundo\n");
    return 0;
 }
+```
+
+Os estilos suportados são:
+
+- `c`: Para C
+- `f90`: Para Fortran 90
+- `java`: Para Java
+- `py`: Para Python
+- `bash`: Para Bash
+- `pseudo`: Para pseudocódigo
+
+```py
+print("Ola Mundo")
 ```
 ~~~~~
 
@@ -100,5 +169,13 @@ int main(void){
 
 Os estilos suportados são:
 
-- `c`: Para `c`
+- `c`: Para C
 - `f90`: Para Fortran 90
+- `java`: Para Java
+- `py`: Para Python
+- `bash`: Para Bash
+- `pseudo`: Para pseudocódigo
+
+```py
+print("Ola Mundo")
+```

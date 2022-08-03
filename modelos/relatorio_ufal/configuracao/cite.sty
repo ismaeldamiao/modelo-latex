@@ -4,6 +4,7 @@
 \RequirePackage[hyphenbreaks]{breakurl}     % Quebra linha nno comando \url
 \RequirePackage[num]{abntex2cite}           % Bibliografia padrão ABNT.
 \citebrackets()                             % Citações com parêntesis.
+\RequirePackage{url}                        %
 
 % Por praticidade, em textos não academicos, prefiro usar como segue
 %\RequirePackage[num, overcite]{abntex2cite} % Bibliografia padrão ABNT.
@@ -31,7 +32,12 @@
       pdfauthor={\imprimirautor},
    }
 }
-\renewcommand*{\figureautorefname}{figura}
+
+\renewcommand{\figureautorefname}{Figura}
+\renewcommand{\equationautorefname}{Equação}
+\renewcommand{\tableautorefname}{Tabela}
+\renewcommand{\sectionautorefname}{Seção}
+\renewcommand{\subsectionautorefname}{Subseção}
 
 \newcommand{\email}[1]{\href{mailto:#1}{#1}}
 
