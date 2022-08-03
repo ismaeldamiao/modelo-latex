@@ -39,6 +39,29 @@
             \label{fig:#1}
          \end{figure}
       },
+      table = {
+         \markdownLaTeXTable={}%
+         \markdownLaTeXTableAlignment={}%
+         \markdownLaTeXTableEnd={%
+            \markdownLaTeXBottomRule
+            \end{tabular}
+         }%
+         \ifx\empty#1\empty\else
+            \addto@hook\markdownLaTeXTable{%
+               \begin{table}[H]
+               \centering
+               \caption{#1}
+            }%
+            \addto@hook\markdownLaTeXTableEnd{%
+               \end{table}
+            }%
+         \fi
+         \addto@hook\markdownLaTeXTable{\begin{tabular}}%
+         \markdownLaTeXRowCounter=0%
+         \markdownLaTeXRowTotal=#2%
+         \markdownLaTeXColumnTotal=#3%
+         \markdownLaTeXRenderTableRow
+      },
       inputFencedCode = {
          \ifx\relax#2\relax
             \VerbatimInput{#1}

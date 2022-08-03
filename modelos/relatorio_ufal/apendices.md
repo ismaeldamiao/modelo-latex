@@ -120,6 +120,31 @@ para fazer as tabelas em MarkDown e cole o códido no sei documento.
 |------------|:-----------------:|-------------:|
 | Bernadette |       Lúcia       |    Teresinha |
 | Agostinho  | Senhora de Fátima | Madre Teresa |
+
+Para inserir um tabela enumerada também é possíbel usar somente
+a notação de MarkDown.
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+{: Título da tabela}
+
+Entretanto, tabelas mais sofisticadas devem ser inseridas utilizando
+código em \LaTeX.
+
+\begin{table}[H]
+\centering
+\caption{Tabela em \LaTeX.}
+\begin{tabular}{|l|c|r|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+{\color[HTML]{000000} Esquerda} & {\color[HTML]{000000} Centro} & {\color[HTML]{000000} Direita} \\ \hline
+Bernadette                      & Lúcia                         & Teresinha                      \\ \hline
+Agostinho                       & Senhora de Fátima             & Madre Teresa                   \\ \hline
+\end{tabular}
+\end{table}
 ```
 
 Use o site <https://tablesgenerator.com/markdown_tables>
@@ -129,6 +154,19 @@ para fazer as tabelas em MarkDown e cole o códido no sei documento.
 |------------|:-----------------:|-------------:|
 | Bernadette |       Lúcia       |    Teresinha |
 | Agostinho  | Senhora de Fátima | Madre Teresa |
+
+Para inserir um tabela enumerada também é possíbel usar somente
+a notação de MarkDown.
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+: Título da tabela
+
+Entretanto, tabelas mais sofisticadas devem ser inseridas utilizando
+código em \LaTeX (de preferência fora do MarkDown).
 
 # Instuções para inserir códigos
 
