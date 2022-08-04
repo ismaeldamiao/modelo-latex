@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # tex2pdf
-# função: Executar os comandos latex, bibtex e makeindex de forma simplificada
-# autor: Ricardo Brito do Nascimento britodfbr<at>incolume.com.br
+# Função: Executar os comandos pdflatex, bibtex e makeindex
+#         de forma simplificada.
+# Autor original: Ricardo Brito do Nascimento britodfbr<at>incolume.com.br
 #
 #
 #  Editado por: Ismael Felipe Ferreira dos Santos
@@ -9,11 +10,24 @@
 #               Universidade Federal de Alagoas
 #  E-mail: ismaellxd@gmail.com
 #  Mudificacoes: Gerar graficos com GNUPlot na saida LaTex de forma correta
-#                e nome mais sugestivo
-#  Ultima alteracao em 05/03/2021
+#                e nome mais sugestivo, funcao de update, remover arquivos
+#                gerados, output apenas dos erros.
+#  Ultima alteracao em 04 de agosto de 2022
 #
-#  Para facilitar:          mv tex2pdf.bash ~/bin/tex2pdf && chmod 755 ~/bin/tex2pdf
-#  Para compilar um .tex:   tex2pdf <NomeDoArquivo.tex>
+#  Para facilitar:         cp tex2pdf ~/bin/tex2pdf && chmod 755 ~/bin/tex2pdf
+#  Para compilar um .tex:  tex2pdf <NomeDoArquivo.tex>
+
+
+
+# diretorio dos binarios do pdflatex
+if which termux-setup-storage > /dev/null; then
+   PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
+else
+   PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
+fi
+
+# URL para decarregar este script
+URLUPDATE="github.com/ismaeldamiao/modelo-latex/raw/master/scripts/tex2pdf"
 
 # ###
 # Mensagem de ajuda
@@ -35,14 +49,13 @@ EOF
 # ###
 # Atualizar script
 # ###
-
-update(){
-   if [ "${PREFIX}" == "/data/data/com.termux/files/usr" ]; then
+function update {
+   if which termux-setup-storage > /dev/null; then
       file="${PREFIX}/bin/tex2pdf"
    else
       file="${HOME}/bin/tex2pdf"
    fi
-   wget -qO "${file}" github.com/ismaeldamiao/modelo-latex/raw/master/tex2pdf
+   wget -qO "${file}" "${URLUPDATE}"
    chmod 755 "${file}"
 }
 
@@ -50,7 +63,7 @@ update(){
 # Funcao que compila o arquivo .tex
 # ###
 
-function tex(){
+function tex {
    arg_pdflatex="-shell-escape "
    arg_pdflatex+="--interaction=nonstopmode "
    arg_pdflatex+="-file-line-error "
@@ -94,18 +107,19 @@ for arg in "$@"; do
       # Nome do arquivo a compilar
       NOME="$(basename $arg .tex)"
       cd `dirname "$arg"`
+      [ -d build ] || mkdir build
    elif [ "$arg" == "--update" ]; then
       # Atualizar este script
       update
       exit $?
    elif [ "$arg" == "-v" ]; then
-      # Execuatar com stdout e stderr padao
+      # Execuatar com stdout e stderr padrao
       std="stdout"
    fi
 done
 
 # Verificar se o compilador LaTeX estah instalado
-command -v pdflatex 1> /dev/null 2>&1 || {
+which pdflatex > /dev/null || {
    echo "Instale o programa pdflatex."
    exit 1
 }

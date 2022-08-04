@@ -36,9 +36,23 @@
 \RequirePackage[T1]{fontenc}        % Compilar correctamente com pdflatex
 \RequirePackage[utf8]{inputenc}     % Codificacao do documento (conversão automática dos acentos).
 \RequirePackage{ucs}                % Complemento do anterior.
+
+% Configuração do babel e memoir
+\PassOptionsToPackage{
+   english, french, spanish,   % Idioma para hifenização.
+   main=portuguese             % Idioma do documento
+}{babel}
+\PassOptionsToClass{
+   12pt,
+   a4paper,
+   sumario = tradicional
+}{memoir}
+
+
+
 \RequirePackage{indentfirst}        % Indenta o primeiro parágrafo
 \RequirePackage{microtype}          % para melhorias de justificação.
-
+\RequirePackage[htt]{hyphenat}      % Permitir hifenização usando \texttt
 \RequirePackage[                    % Margens conforme padrão ABNT
    top = 3cm,
    left = 3cm,
@@ -46,20 +60,15 @@
    right = 2cm
 ]{geometry}
 
+
 % 1ex - É a largura da letra x (minúscula)
 % 1em - É a largura da letra M (Maiúscula)
-\setlength{\parindent}{3ex} % Tamanho do parágrafo
-\setlength{\parskip}{1em}   % Espaço  entre parágrafos
+\setlength{\parindent}{3ex}         % Tamanho do parágrafo
+\setlength{\parskip}{1em}           % Espaço  entre parágrafos
 
-\RequirePackage[htt]{hyphenat} % Permitir hifenização usando \texttt
-\PassOptionsToPackage{
-   english, french, spanish,   % Idioma para hifenização.
-   main=portuguese             % Idioma do documento
-}{babel}
-\PassOptionsToClass{12pt}{memoir}
 
 % ---
-% Fontes e tamanhos dos títulos de Capítulos e cia
+% Mudanças no pacote abntex2
 % ---
 \renewcommand{\ABNTEXchapterfont}{\bfseries\rmfamily}
 \renewcommand{\ABNTEXsectionfont}{\bfseries\rmfamily}
@@ -121,16 +130,15 @@
 % DEMAIS PACOTES
 % ------------------------------------------------------------------------------
 
-\RequirePackage{lipsum}
-\RequirePackage{todonotes}
+\RequirePackage{lipsum}    %
 \RequirePackage{lettrine}  % Letra capitular
-
-\RequirePackage{enumitem}
+\RequirePackage{enumitem}  %
 \setlist[enumerate]{nosep, topsep=-\parskip}
 
 % ---
 % Palete de cores
 % ---
+\RequirePackage{color, xcolor}
 
 \definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
 \definecolor{asparagus}{rgb}{0.53, 0.66, 0.42}
