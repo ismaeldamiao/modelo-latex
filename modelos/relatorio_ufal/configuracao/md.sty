@@ -66,7 +66,17 @@
          \ifx\relax#2\relax
             \VerbatimInput{#1}
          \else
-            \lstinputlisting[style=#2]{#1}
+            \ifthenelse{\equal{#2}{LaTeX}}%
+            {\input{#1}}%
+            {
+               \begin{tcolorbox}[
+                  colback=gray!5!white,
+                  colframe=gray!75!black,
+                  title=\nomedalinguagem{#2}
+               ]
+                  \lstinputlisting[style=#2]{#1}
+               \end{tcolorbox}
+            }%
          \fi
       },
    },

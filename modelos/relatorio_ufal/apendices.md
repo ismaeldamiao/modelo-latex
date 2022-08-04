@@ -112,28 +112,30 @@ a \autoref{fig:ps} foi salva em formato `.eps`.
 
 # Instuções para inserir tabelas
 
-```md
+~~~md
 Use o site <https://tablesgenerator.com/markdown_tables>
 para fazer as tabelas em MarkDown e cole o códido no sei documento.
 
 | Esquerda   |       Centro      |      Direita |
 |------------|:-----------------:|-------------:|
-| Bernadette |       Lúcia       |    Teresinha |
-| Agostinho  | Senhora de Fátima | Madre Teresa |
+| Bernadette |      Agostinho    |    Teresinha |
+| Lúcia      | Senhora de Fátima | Madre Teresa |
 
 Para inserir um tabela enumerada também é possíbel usar somente
 a notação de MarkDown.
 
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|   12  |  12  |    12   |    12  |
-|  123  |  123 |   123   |   123  |
-|    1  |    1 |     1   |     1  |
+| Esquerda   |       Centro      |      Direita |
+|------------|:-----------------:|-------------:|
+| Bernadette |      Agostinho    |    Teresinha |
+| Lúcia      | Senhora de Fátima | Madre Teresa |
 {: Título da tabela}
 
 Entretanto, tabelas mais sofisticadas devem ser inseridas utilizando
 código em \LaTeX.
+Use o site <https://tablesgenerator.com/latex_tables>
+para fazer tabelas em \LaTeX.
 
+```LaTeX
 \begin{table}[H]
 \centering
 \caption{Tabela em \LaTeX.}
@@ -141,32 +143,48 @@ código em \LaTeX.
 \hline
 \rowcolor[HTML]{C0C0C0} 
 {\color[HTML]{000000} Esquerda} & {\color[HTML]{000000} Centro} & {\color[HTML]{000000} Direita} \\ \hline
-Bernadette                      & Lúcia                         & Teresinha                      \\ \hline
-Agostinho                       & Senhora de Fátima             & Madre Teresa                   \\ \hline
+Bernadette                      &  Agostinho                    & Teresinha                      \\ \hline
+Lúcia                           & Senhora de Fátima             & Madre Teresa                   \\ \hline
 \end{tabular}
 \end{table}
 ```
+~~~~~
 
 Use o site <https://tablesgenerator.com/markdown_tables>
 para fazer as tabelas em MarkDown e cole o códido no sei documento.
 
 | Esquerda   |       Centro      |      Direita |
 |------------|:-----------------:|-------------:|
-| Bernadette |       Lúcia       |    Teresinha |
-| Agostinho  | Senhora de Fátima | Madre Teresa |
+| Bernadette |      Agostinho    |    Teresinha |
+| Lúcia      | Senhora de Fátima | Madre Teresa |
 
 Para inserir um tabela enumerada também é possíbel usar somente
 a notação de MarkDown.
 
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|   12  |  12  |    12   |    12  |
-|  123  |  123 |   123   |   123  |
-|    1  |    1 |     1   |     1  |
+| Esquerda   |       Centro      |      Direita |
+|------------|:-----------------:|-------------:|
+| Bernadette |      Agostinho    |    Teresinha |
+| Lúcia      | Senhora de Fátima | Madre Teresa |
 : Título da tabela
 
 Entretanto, tabelas mais sofisticadas devem ser inseridas utilizando
-código em \LaTeX (de preferência fora do MarkDown).
+código em \LaTeX.
+Use o site <https://tablesgenerator.com/latex_tables>
+para fazer tabelas em \LaTeX.
+
+```LaTeX
+\begin{table}[H]
+\centering
+\caption{Tabela em \LaTeX.}
+\begin{tabular}{|l|c|r|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+{\color[HTML]{000000} Esquerda} & {\color[HTML]{000000} Centro} & {\color[HTML]{000000} Direita} \\ \hline
+Bernadette                      &  Agostinho                    & Teresinha                      \\ \hline
+Lúcia                           & Senhora de Fátima             & Madre Teresa                   \\ \hline
+\end{tabular}
+\end{table}
+```
 
 # Instuções para inserir códigos
 
@@ -188,10 +206,29 @@ Os estilos suportados são:
 - `java`: Para Java
 - `py`: Para Python
 - `bash`: Para Bash
+- `latex`: Para \LaTeX
 - `pseudo`: Para pseudocódigo
 
 ```py
 print("Ola Mundo")
+```
+
+Note que o estilo `latex` não deve ser confundido com o `LaTeX`,
+o primeiro insere no PDF um código em \LaTeX, já o segundo permite
+utilizar códigos \LaTeX~ em vez de MarkDown para escrever e formatar o documento.
+
+```LaTeX
+\begin{center}
+   \faIcon{envelope}~
+   \faIcon{github}~
+\end{center}
+```
+
+```latex
+\begin{center}
+   \faIcon{envelope}~
+   \faIcon{github}~
+\end{center}
 ```
 ~~~~~
 
@@ -217,3 +254,20 @@ Os estilos suportados são:
 ```py
 print("Ola Mundo")
 ```
+
+Note que o estilo `latex` não deve ser confundido com o `LaTeX`,
+o primeiro insere no PDF um código em \LaTeX, já o segundo permite
+utilizar códigos \LaTeX~ em vez de MarkDown para escrever e formatar o documento.
+
+```LaTeX
+\begin{center}
+   \faIcon{envelope}~
+   \faIcon{github}~
+\end{center}
+```
+
+```latex
+\begin{center}
+   \faIcon{envelope}~
+   \faIcon{github}~
+\end{center}
