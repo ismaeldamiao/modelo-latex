@@ -5,8 +5,17 @@
 Este repositório contém modelos e exemplos de documentos LeTeX para diversos
 fins, todos escritos por mim, Ismael.
 
-## Sobre o autor
+## Contato
 
-Sou um físico brasileiro do Estado de Alagoas.
+© Ismael Felipe Ferreira dos Santos
+* Instituto de Física
+* Universidade Federal de Alagoas
 
-Visite meu site: <ismaeldamiao.github.io/pt/>.
+Caso indentifique algum bug ou tenha alguma sugestão por favor
+contate o autor pelo seguinte endereço de correio eletrônico.
+* [ismaellxd@gmail.com](mailto:ismaellxd@gmail.com)
+
+Caso queira fazer pagar um café ao autor considere fazer
+a doação por PIX ou pelo PayPal.
+* Chave PIX: ismaellxd@gmail.com
+* [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D66EM3DGU35EE&source=url)
