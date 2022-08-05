@@ -45,7 +45,7 @@
 \usepackage{amsfonts}                  % Fontes para notação matemática.
 \usepackage{xcolor}                    % Para colorir
 \usepackage[T1]{fontenc}               % Selecao de codigos de fonte.
-\usepackage[utf8x]{inputenc}           % Codificacao do documento (conversão automática dos acentos).
+\usepackage[utf8]{inputenc}            % Codificacao do documento (conversão automática dos acentos).
 \usepackage{ucs}                       % Complemento do anterior.
 \usepackage{indentfirst}               % Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}                     % Controle das cores.
@@ -56,11 +56,14 @@
 \citebrackets[]                        % Citações com coxetes.
 \usepackage{bibentry}                  % Para mostrar artigos publicados.
 \usepackage{enumitem}
-\usepackage{xcolor}
+\usepackage{color, xcolor, colortbl}
 \usepackage{fontawesome5}
+\usepackage{tabularx}
 
 \usepackage{multicol}
 \setlength{\columnsep}{3.5cm}
+
+\newcommand{\gray}{\rowcolor[gray]{.90}} % Custom highlighting
 
 \newcommand{\customtitle}[1]{\noindent\textbf{\large#1}\vspace{2pt}\hrule}
 
@@ -106,20 +109,17 @@
 % ------------------
 \customtitle{Escolaridade}
 
-   \begin{itemize}[nosep]
+\begin{tabularx}{0.97\linewidth}{>{\raggedleft}p{2cm}X}
+   \gray Conclusão   & \textbf{2018}\\
+   \gray Grau        & \textbf{Ensino Médio}\\
+   \gray Instituição & \textbf{E. E. Profº Theonilo Gama}
+\end{tabularx}
 
-      \item[ ] \textbf{\href{https://ufal.br/}{Universidade Federal de Alagoas}}
-      \begin{itemize}[nosep]
-        \item[ ] B.el, Física \hfill Esperado 2022
-      \end{itemize}
-
-
-      \item[ ] \textbf{E. E. Profº Theonilo Gama}
-      \begin{itemize}[nosep]
-        \item[ ] Ensino médio \hfill 2018
-      \end{itemize}
-
-   \end{itemize}
+\begin{tabularx}{0.97\linewidth}{>{\raggedleft}p{2cm}X}
+   \gray Período     & \textbf{Julho de 2018 --- Presente (esperado 2023)}\\
+   \gray Grau        & \textbf{Bacharel}\\
+   \gray Instituição & \textbf{\href{https://ufal.br/}{Universidade Federal de Alagoas}}
+\end{tabularx}
 
 % ------------------
 % Idioma
@@ -139,6 +139,34 @@
         \item[ ] Lê razoavelmente e escreve razoavelmente.
       \end{itemize}
 
+   \end{itemize}
+
+% ------------------
+% Experiências
+% ------------------
+\customtitle{Experiências}
+
+\begin{tabularx}{0.97\linewidth}{>{\raggedleft}p{2cm}X}
+   \gray Período    & \textbf{Setembro de 2021 --- Novembro de 2022}\\
+   \gray Empregador & \textbf{Colégio Único}\\
+   \gray Cargo      & \textbf{Professor de matemático para 6º, 7º e 8º anos}
+\end{tabularx}
+
+\begin{tabularx}{0.97\linewidth}{>{\raggedleft}p{2cm}X}
+   \gray Período    & \textbf{Janeiro de 2022 --- Abril de 2022}\\
+   \gray Empregador & \textbf{Colégio Santa Lúcia}\\
+   \gray Cargo      & \textbf{Professor de física no ensino médio}
+\end{tabularx}
+
+   \begin{itemize}[nosep]
+      \item Monitor nas edições de 2018 e 2019 da expofísica da UFAL.
+      \item Um ano como monitor no laboratório de Física Experimental 1.
+      \item Professor monitor nas calouradas de 2020 e 2021 para introduzir
+      Geometria Analítica e Física Computacional,
+      tendo em ambos os casos publicado vídeos didáticos e no último
+      tendo escrito uma apostila.
+      \item Dois anos e meio de Iniciação Científica na área de
+      transporte em sistemas de baixa dimensionalidade.
    \end{itemize}
 
 % ------------------
@@ -162,32 +190,24 @@
    \end{itemize}
 
 % ------------------
-% Experiências
-% ------------------
-\customtitle{Experiências}
-
-   \begin{itemize}[nosep]
-      \item Monitor nas edições de 2018 e 2019 da expofísica da UFAL.
-      \item Um ano como monitor no laboratório de Física Experimental 1.
-      \item Professor monitor nas calouradas de 2020 e 2021 para introduzir
-      Geometria Analítica e Física Computacional,
-      tendo em ambos os casos publicado vídeos didáticos e no último
-      tendo escrito uma apostila.
-      \item Dois anos e meio de Iniciação Científica na área de
-      transporte em sistemas de baixa dimensionalidade.
-   \end{itemize}
-
-% ------------------
 % Softwares de domínio
 % ------------------
 \customtitle{Softwares de domínio}
 
    \begin{itemize}[nosep]
-      \item[ ] LibreOffice, \LaTeX, GNUplot, xmGrace, jekyll, Inkscape.
-
       \item[ ] Linguagens de programação:
       \begin{itemize}[nosep]
          \item[ ] BASH, Java (básico), Python (básico), C, Fortran 90.
+      \end{itemize}
+
+      \item[ ] Linguagens de marcação:
+      \begin{itemize}[nosep]
+         \item[ ] HTML5 (básico), \LaTeX, MarkDown.
+      \end{itemize}
+
+      \item[ ] Ferramentas:
+      \begin{itemize}[nosep]
+         \item[ ] LibreOffice, GNUplot, xmGrace, jekyll, Inkscape.
       \end{itemize}
    \end{itemize}
 
