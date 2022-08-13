@@ -8,7 +8,11 @@ Este repositório contém modelos e exemplos de documentos LeTeX para diversos
 fins, todos escritos por mim, Ismael.
 
 <p style="text-align: center;">
-<img  width="400rem" src="https://github-readme-stats.vercel.app/api/pin/?username=ismaeldamiao&locale=pt-pt&theme=onedark&repo=modelo-latex" />
+   <img
+      width="400rem"
+      style="text-align: center;"
+      src="https://github-readme-stats.vercel.app/api/pin/?username=ismaeldamiao&locale=pt-pt&theme=onedark&repo=modelo-latex"
+   />
 </p>
 
 ## Contato
