@@ -9,13 +9,11 @@ fins, todos escritos por mim, Ismael.
 
 <div align="center">
    <div>
-      <a href="https://github.com/Carlos-Antunis">
-         <img
-            width="400rem"
-            style="text-align: center;"
-            src="https://github-readme-stats.vercel.app/api/pin/?username=ismaeldamiao&locale=pt-pt&theme=onedark&repo=modelo-latex"
-         />
-      </a>
+      <img
+         width="400rem"
+         style="text-align: center;"
+         src="https://github-readme-stats.vercel.app/api/pin/?username=ismaeldamiao&locale=pt-pt&theme=onedark&repo=modelo-latex"
+      />
    </div>
 </div>
 
