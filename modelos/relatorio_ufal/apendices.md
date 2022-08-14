@@ -98,17 +98,17 @@ Exemplo de citação:
 A \autoref{fig:exemplo} foi salva em formato `.png`, já
 a \autoref{fig:ps} foi salva em formato `.eps`.
 
-![exemplo](img/NomeDoArquivo.png "Título da imagem")
+![exemplo](NomeDoArquivo.png "Título da imagem")
 
-![ps](img/graph1.eps "Gráfico salvo em PostScript")
+![ps](graph1.eps "Gráfico salvo em PostScript")
 ```
 
 A \autoref{fig:exemplo} foi salva em formato `.png`, já
 a \autoref{fig:ps} foi salva em formato `.eps`.
 
-![exemplo](img/NomeDoArquivo.png "Título da imagem")
+![exemplo](NomeDoArquivo.png "Título da imagem")
 
-![ps](img/graph1.eps "Gráfico salvo em PostScript")
+![ps](graph1.eps "Gráfico salvo em PostScript")
 
 # Instuções para inserir tabelas
 
