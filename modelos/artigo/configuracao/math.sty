@@ -1,0 +1,184 @@
+\RequirePackage{amsthm, thmtools}          % Para teoremas
+\RequirePackage{amssymb}                   % Para exibir símbolos de conjuntos de números (reais, etc...).
+\RequirePackage{amsmath}                   % Para adcionar equações
+\RequirePackage{amsfonts}                  % Fontes para notação matemática. de cada seção.
+\RequirePackage{esint}                     % Vários simbolos integrais
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\renewcommand{\sinh}{\operatorname{senh}}
+
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\braket}[2]{\langle#1|#2\rangle}
+\newcommand{\ketbra}[2]{|#1\rangle\langle#2|}
+
+\newcommand{\tensor}[1]{\overset{\leftrightarrow}{#1}}
+
+\newcommand{\grad}{\operatorname{grad}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\rot}{\operatorname{rot}}
+
+\newcommand{\eq}[1]{\hyperref[eq:#1]{equa\c{c}\~ao} \ref{eq:#1}}
+\newcommand{\prop}[1]{\hyperref[prop:#1]{proposi\c{c}\~ao} \ref{prop:#1}}
+\newcommand{\defin}[1]{\hyperref[def:#1]{defini\c{c}\~ao} \ref{def:#1}}
+\newcommand{\teo}[1]{\hyperref[teo:#1]{teorema} \ref{teo:#1}}
+\newcommand{\exemp}[1]{\hyperref[exemp:#1]{exemplo} \ref{exemp:#1}}
+\newcommand{\sess}[1]{\hyperref[sec:#1]{sessão} \ref{sec:#1}}
+
+\declaretheoremstyle[
+   headfont=\normalfont\bfseries,
+   bodyfont=\normalfont\itshape,
+   notefont=\normalfont\bfseries,
+   notebraces={ (}{)},
+   headpunct={. },
+   numbered=yes,
+   headindent=0em,
+   spaceabove=1em,
+   postheadspace=0em,
+   spacebelow=1em,
+   qed={ }
+]{EstiloItalico}
+\declaretheoremstyle[
+   headfont=\normalfont\bfseries,
+   bodyfont=\normalfont\mdseries,
+   notefont=\normalfont\bfseries,
+   notebraces={ (}{)},
+   headpunct={. },
+   numbered=yes,
+   headindent=0em,
+   spaceabove=0em,
+   postheadspace=0em,
+   spacebelow=-\parskip,
+   qed={ }
+]{EstiloPlano}
+
+% Definição
+\declaretheorem[
+   style=EstiloPlano,
+   parent=chapter,
+   name=Defini\c{c}\~ao
+]{definicao}
+
+% Notação
+\declaretheorem[
+   style=EstiloPlano,
+   parent=chapter,
+   name=Nota\c{c}\~ao
+]{notacao}
+
+% Propriedades
+\declaretheorem[
+   style=EstiloPlano,
+   numbered=no,
+   name=Propriedades
+]{propriedades}
+
+% Axioma
+\declaretheorem[
+   style=EstiloItalico,
+   parent=chapter,
+   name=\textsc{Axioma}
+]{axioma}
+
+% Postulados
+\declaretheorem[
+   style=EstiloItalico,
+   parent=chapter,
+   name=\textsc{Postulado}
+]{postulado}
+
+% Lei
+\declaretheorem[
+   style=EstiloItalico,
+   parent=chapter,
+   name=\textsc{Lei}
+]{lei}
+
+% Hipotese
+\declaretheorem[
+   style=EstiloPlano,
+   parent=chapter,
+   name=\textsc{Hip\'otese}
+]{hipotese}
+
+% Proposiçao
+\declaretheorem[
+   style=EstiloItalico,
+   parent=chapter,
+   name=Proposi\c{c}\~ao
+]{proposicao}
+
+% Lema
+\declaretheorem[
+   style=EstiloItalico,
+   parent=chapter,
+   name=\textsc{Lema}
+]{lema}
+
+% Teorema
+\declaretheorem[
+   style=EstiloItalico,
+   parent=chapter,
+   name=\textsc{Teorema}
+]{teorema}
+
+% corolario
+\declaretheorem[
+   style=EstiloItalico,
+   parent=chapter,
+   name=Corol\'ario
+]{corolario}
+
+% Prova
+\declaretheorem[
+   style=EstiloPlano,
+   qed={\textbf{Q.E.D.}},
+   numbered=no,
+   name=Desmostra\c{c}\~ao
+]{prova}
+
+% Exemplo
+\declaretheorem[
+   style=EstiloPlano,
+   parent=chapter,
+   name=Exemplo
+]{exemplo}
+
+% Problema
+\declaretheorem[
+   style=EstiloPlano,
+   parent=chapter,
+   name=Problema
+]{problema}
+
+% Observação
+\declaretheorem[
+   style=EstiloPlano,
+   numbered=no,
+   name=Observa\c{c}\~ao
+]{observacao}
+
+% Dica
+\declaretheorem[
+   style=EstiloPlano,
+   numbered=no,
+   name=Dica
+]{dica}
+
+\RequirePackage[most]{tcolorbox}
+
+\tcolorboxenvironment{dica}{
+   breakable,
+   colback=DarkOrchid!15!white,
+   colframe=DarkOrchid!75!black,
+}
+

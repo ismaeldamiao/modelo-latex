@@ -1,0 +1,84 @@
+\RequirePackage{markdown}
+
+\makeatletter
+\newcommand{\customurl}[2]{
+   \ifthenelse{\equal{#1}{#2}}%
+   {\url{#1}}%
+   {\href{#1}{#2}}%
+}
+\makeatother
+
+\makeatletter
+\markdownSetup{
+   smartEllipses,
+   fencedCode,
+   citations,
+   inlineFootnotes,
+   headerAttributes,
+   pipeTables,
+   tableCaptions,
+   underscores=false,
+   hybrid,
+   renderers = {
+      link = {\customurl{#2}{#1}},
+   },
+   rendererPrototypes = {
+      blockQuoteBegin = {\begin{citacao}},
+      blockQuoteEnd   = {\end{citacao}},
+      ulBegin         = {\begin{itemize}[nosep]},
+      ulEnd           = {\end{itemize}},
+      olBegin         = {\begin{enumerate}[nosep]},
+      olEnd           = {\end{enumerate}},
+      image           = {
+         \begin{figure}[H]
+            \caption{#4}
+            \begin{center}
+               \includegraphics{#2}
+            \end{center}
+            \legend{~}
+            \label{fig:#1}
+         \end{figure}
+      },
+      table = {
+         \markdownLaTeXTable={}%
+         \markdownLaTeXTableAlignment={}%
+         \markdownLaTeXTableEnd={%
+            \markdownLaTeXBottomRule
+            \end{tabular}
+         }%
+         \ifx\empty#1\empty\else
+            \addto@hook\markdownLaTeXTable{%
+               \begin{table}[H]
+               \centering
+               \caption{#1}
+            }%
+            \addto@hook\markdownLaTeXTableEnd{%
+               \end{table}
+            }%
+         \fi
+         \addto@hook\markdownLaTeXTable{\begin{tabular}}%
+         \markdownLaTeXRowCounter=0%
+         \markdownLaTeXRowTotal=#2%
+         \markdownLaTeXColumnTotal=#3%
+         \markdownLaTeXRenderTableRow
+      },
+      inputFencedCode = {
+         \ifx\relax#2\relax
+            \VerbatimInput{#1}
+         \else
+            \ifthenelse{\equal{#2}{LaTeX}}%
+            {\input{#1}}%
+            {
+               \begin{tcolorbox}[
+                  colback=gray!5!white,
+                  colframe=gray!75!black,
+                  title=\nomedalinguagem{#2}
+               ]
+                  \lstinputlisting[style=#2]{#1}
+               \end{tcolorbox}
+            }%
+         \fi
+      },
+   },
+}
+\makeatother

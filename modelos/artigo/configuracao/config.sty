@@ -1,0 +1,139 @@
+%  Encoding: UTF-8
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+%  Copyright (C) 2021 I.F.F. dos SANTOS
+%
+%  Permission is hereby granted, free of charge, to any person obtaining a copy 
+%  of this software and associated documentation files (the “Software”), to 
+%  deal in the Software without restriction, including without limitation the 
+%  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+%  sell copies of the Software, and to permit persons to whom the Software is 
+%  furnished to do so, subject to the following conditions:
+%
+%  The above copyright notice and this permission notice shall be included in 
+%  all copies or substantial portions of the Software.
+%
+%  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+%  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+%  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+%  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+%  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+%  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+%  IN THE SOFTWARE.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+\ProvidesPackage{config}
+% ------------------------------------------------------------------------------
+% APARÊNCIA GERAL DO DOCUMENTO
+% ------------------------------------------------------------------------------
+
+% ---
+% Fontes
+% ---
+% Usar font 'TeX Gyre Termes' como fonte principal
+\RequirePackage{tgtermes}
+\RequirePackage{fontawesome5}       % Permite o uso da fonte Font Awesome
+
+\RequirePackage[T1]{fontenc}        % Compilar correctamente com pdflatex
+\RequirePackage[utf8]{inputenc}     % Codificacao do documento (conversão automática dos acentos).
+\RequirePackage{ucs}                % Complemento do anterior.
+
+% Configuração do babel e memoir
+\PassOptionsToPackage{
+   english, french, spanish,   % Idioma para hifenização.
+   main=portuguese             % Idioma do documento
+}{babel}
+\PassOptionsToClass{
+   12pt,
+   a4paper,
+   sumario = tradicional
+}{memoir}
+
+
+
+\RequirePackage{indentfirst}        % Indenta o primeiro parágrafo
+\RequirePackage{microtype}          % para melhorias de justificação.
+\RequirePackage[htt]{hyphenat}      % Permitir hifenização usando \texttt
+\RequirePackage[                    % Margens conforme padrão ABNT
+   top = 3cm,
+   left = 3cm,
+   bottom = 2cm,
+   right = 2cm
+]{geometry}
+
+
+% 1ex - É a largura da letra x (minúscula)
+% 1em - É a largura da letra M (Maiúscula)
+\setlength{\parindent}{3ex}         % Tamanho do parágrafo
+\setlength{\parskip}{1em}           % Espaço  entre parágrafos
+
+
+% ---
+% Mudanças no pacote abntex2
+% ---
+\renewcommand{\ABNTEXchapterfont}{\bfseries\rmfamily}
+\renewcommand{\ABNTEXsectionfont}{\bfseries\rmfamily}
+\renewcommand{\ABNTEXsubsectionfont}{\bfseries\rmfamily}
+\renewcommand{\ABNTEXsubsubsectionfont}{\bfseries\rmfamily}
+
+\renewcommand{\ABNTEXchapterfontsize}{\huge}
+\renewcommand{\ABNTEXsectionfontsize}{\LARGE}
+\renewcommand{\ABNTEXsubsectionfontsize}{\Large}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\large}
+
+\tituloestrangeiro{\vspace{-2em}}
+\setlength{\ABNTEXsignwidth}{12cm}
+
+\renewenvironment{dedicatoria}{}{}
+\renewenvironment{agradecimentos}{}{}
+\renewenvironment{epigrafe}{}{}
+\renewenvironment{resumo}{}{}
+
+\providecommand{\imprimirdedicatoria}{}
+\providecommand{\imprimiragradecimentos}{}
+\providecommand{\imprimirepigrafe}{}
+\providecommand{\imprimirresumo}{}
+\providecommand{\imprimirabstract}{}
+\providecommand{\imprimirresumen}{}
+
+\renewcommand{\dedicatoria}[1]{\renewcommand{\imprimirdedicatoria}{#1}}
+\renewcommand{\agradecimentos}[1]{\renewcommand{\imprimiragradecimentos}{#1}}
+\renewcommand{\epigrafe}[1]{\renewcommand{\imprimirepigrafe}{#1}}
+\renewcommand{\resumo}[1]{\renewcommand{\imprimirresumo}{#1}}
+\newcommand{\resumoingles}[1]{\renewcommand{\imprimirabstract}{#1}}
+\newcommand{\resumoespanhol}[1]{\renewcommand{\imprimirresumen}{#1}}
+
+
+% ------------------------------------------------------------------------------
+% DEMAIS PACOTES
+% ------------------------------------------------------------------------------
+
+\RequirePackage{lipsum}    %
+\RequirePackage{lettrine}  % Letra capitular
+\RequirePackage{enumitem}  %
+\setlist[enumerate]{nosep, topsep=-\parskip}
+
+% ---
+% Palete de cores
+% ---
+\RequirePackage{color}
+\RequirePackage[table,xcdraw]{xcolor}
+
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{asparagus}{rgb}{0.53, 0.66, 0.42}
+\definecolor{cyan(process)}{rgb}{0.0, 0.72, 0.92}
+\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\definecolor{darkpastelblue}{rgb}{0.47, 0.62, 0.8}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{blue(ryb)}{rgb}{0.01, 0.28, 1.0}
+
+
+
+\newcommand{\aspas}[1]{``#1''}
+
+\RequirePackage{configuracao/math}
+\RequirePackage{configuracao/imgs}
+\RequirePackage{configuracao/code}
+\RequirePackage{configuracao/cite}
+\RequirePackage{configuracao/md}
+\input{configuracao/capa}
